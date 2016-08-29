@@ -3,13 +3,14 @@ package br.com.fiap.am.model;
 import br.com.fiap.am.enums.AccessLevel;
 import org.hibernate.validator.constraints.NotEmpty;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
+import static javax.persistence.EnumType.STRING;
+
 @Entity
+@Table(name = "users")
 public class User implements Serializable {
 	private static final long SerialVersionUID = 1L;
 
@@ -30,7 +31,7 @@ public class User implements Serializable {
 	private String password;
 
 	@NotNull
-	@NotEmpty
+	@Enumerated(STRING)
 	private AccessLevel accessLevel;
 
 	/**
