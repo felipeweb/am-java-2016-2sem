@@ -2,5 +2,5 @@ package br.com.fiap.am.enums;
 
 
 public enum AccessLevel {
-	WEBMASTER;
+	WEBMASTER, INVESTIDOR, COMPRADOR, ADMINISTRADOR;
 }
