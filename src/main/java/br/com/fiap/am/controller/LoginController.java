@@ -10,6 +10,7 @@ import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.validator.I18nMessage;
 import br.com.caelum.vraptor.validator.Severity;
 import br.com.caelum.vraptor.validator.Validator;
+import br.com.fiap.am.authorization.Public;
 import br.com.fiap.am.dao.UserDAO;
 import br.com.fiap.am.model.User;
 import br.com.fiap.am.model.UserSession;
@@ -37,11 +38,13 @@ public class LoginController {
 	}
 
 	@Get("/login")
+	@Public
 	public void login() {
 
 	}
 
 	@Post("/login")
+	@Public
 	public void auth(@NotNull String login, @NotNull String password) {
 		validator.onErrorRedirectTo(this).login();
 		User user = users.findUserByLoginAndPassword(login, password);

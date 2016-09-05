@@ -1,7 +1,7 @@
 <%@ tag language="java" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
-<html class="ls-theme-green">
+<html class="ls-theme-turquoise">
   <head>
     <title>Unlock My Door Website</title>
 
