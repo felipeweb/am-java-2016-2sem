@@ -26,7 +26,7 @@
     </div>
 
     <span class="ls-show-sidebar ls-ico-menu"></span>
-    
+
     <!-- Nome do produto/marca com sidebar -->
     <h1 class="ls-brand-name">
         <a href="../home" class="ls-ico-earth">
