@@ -3,8 +3,10 @@ package br.com.fiap.am.model;
 import java.io.Serializable;
 
 import javax.enterprise.context.SessionScoped;
+import javax.inject.Named;
 
 @SessionScoped
+@Named
 public class UserSession implements Serializable {
 	
 	private static final long serialVersionUID = 1L;

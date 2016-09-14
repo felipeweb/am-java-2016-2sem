@@ -55,7 +55,7 @@ public class LoginController {
 		}
 		
 		session.add(user);
-		result.redirectTo(HomeController.class).home();
+		result.redirectTo(DashboardController.class).dashboard();
 	}
 	
 	@Get("/logout")

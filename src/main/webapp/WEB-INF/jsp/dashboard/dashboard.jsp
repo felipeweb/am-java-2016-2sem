@@ -7,7 +7,7 @@
 <tags:sidebar/>
 <main class="ls-main">
     <div class="container-fluid">
-        <h1 class="ls-title-intro ls-ico-user"><fmt:message key="new.user"/></h1>
+        <h1 class="ls-title-intro ls-ico-dashboard"><fmt:message key="dashboard"/></h1>
         <tags:messages/>
     </div>
 </main>
