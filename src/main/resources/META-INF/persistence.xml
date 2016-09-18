@@ -6,6 +6,7 @@
 
     <persistence-unit name="default" transaction-type="RESOURCE_LOCAL">
         <class>br.com.fiap.am.model.User</class>
+        <class>br.com.fiap.am.model.News</class>
         <properties>
             <!-- dados da conexao -->
             <property name="javax.persistence.jdbc.driver"
