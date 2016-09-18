@@ -22,21 +22,19 @@ import java.util.List;
 public class NewsController {
     private final Validator validator;
     private final Result result;
-    private final UserSession session;
     private final NewsDAO newsDAO;
 
     /**
      * @deprecated CDI eyes only
      */
     protected NewsController() {
-        this(null, null, null, null);
+        this(null, null, null);
     }
 
     @Inject
-    public NewsController(Validator validator, Result result, UserSession session, NewsDAO newsDAO) {
+    public NewsController(Validator validator, Result result, NewsDAO newsDAO) {
         this.validator = validator;
         this.result = result;
-        this.session = session;
         this.newsDAO = newsDAO;
     }
 
