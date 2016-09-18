@@ -17,7 +17,7 @@
                     <input type="text" name="news.title" placeholder='<fmt:message key="title"/>' value="${news.title}" required >
                 </label>
                 <label class="ls-label">
-                    <input type="hidden" name="news.author.id" value="${news.author.id}">
+                    <input type="hidden" name="news.author.id" value="${userSession.user.id}">
                     <b class="ls-label-text"><fmt:message key="author"/></b>
                     <input type="text" name="news.author.name" placeholder='<fmt:message key="author"/>' value="${userSession.user.name}" required >
                 </label>
