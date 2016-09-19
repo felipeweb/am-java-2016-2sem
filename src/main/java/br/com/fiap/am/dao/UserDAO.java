@@ -42,5 +42,5 @@ public class UserDAO extends GenericDAO<User> {
 		}catch (NoResultException e){
 			return null;
 		}
-	}
+	}	
 }
