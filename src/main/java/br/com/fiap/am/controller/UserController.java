@@ -1,10 +1,5 @@
 package br.com.fiap.am.controller;
 
-import java.util.List;
-
-import javax.inject.Inject;
-import javax.validation.Valid;
-
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Post;
@@ -14,8 +9,11 @@ import br.com.caelum.vraptor.validator.Severity;
 import br.com.caelum.vraptor.validator.Validator;
 import br.com.fiap.am.dao.UserDAO;
 import br.com.fiap.am.enums.AccessLevel;
-import br.com.fiap.am.model.News;
 import br.com.fiap.am.model.User;
+
+import javax.inject.Inject;
+import javax.validation.Valid;
+import java.util.List;
 
 /**
  * Created by felipeweb on 12/09/16.

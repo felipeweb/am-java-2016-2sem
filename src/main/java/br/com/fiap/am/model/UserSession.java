@@ -1,9 +1,8 @@
 package br.com.fiap.am.model;
 
-import java.io.Serializable;
-
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
+import java.io.Serializable;
 
 @SessionScoped
 @Named

@@ -9,7 +9,6 @@ import br.com.caelum.vraptor.validator.Severity;
 import br.com.caelum.vraptor.validator.Validator;
 import br.com.fiap.am.dao.NewsDAO;
 import br.com.fiap.am.model.News;
-import br.com.fiap.am.model.UserSession;
 
 import javax.inject.Inject;
 import javax.validation.Valid;

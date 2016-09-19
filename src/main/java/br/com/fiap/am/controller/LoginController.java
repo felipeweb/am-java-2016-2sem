@@ -1,8 +1,5 @@
 package br.com.fiap.am.controller;
 
-import javax.inject.Inject;
-import javax.validation.constraints.NotNull;
-
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Post;
@@ -14,6 +11,9 @@ import br.com.fiap.am.authorization.Public;
 import br.com.fiap.am.dao.UserDAO;
 import br.com.fiap.am.model.User;
 import br.com.fiap.am.model.UserSession;
+
+import javax.inject.Inject;
+import javax.validation.constraints.NotNull;
 
 @Controller
 public class LoginController {
