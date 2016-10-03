@@ -3,6 +3,8 @@ package br.com.fiap.am.dao;
 import br.com.fiap.am.infra.Digester;
 import br.com.fiap.am.model.User;
 
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
@@ -42,5 +44,13 @@ public class UserDAO extends GenericDAO<User> {
 		}catch (NoResultException e){
 			return null;
 		}
-	}	
+	}
+	
+	public List<User> filterBy(String column, String value){
+		if(column != null && !column.equals("*")){
+			String sql = "SELECT u FROM User u WHERE " + column + " = :value";
+			return (List<User>) getEntityManager().createQuery(sql).setParameter("value", value).getResultList();
+		}
+		return findAll();		
+	}
 }

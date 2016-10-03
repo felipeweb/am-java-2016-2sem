@@ -48,12 +48,12 @@ public class NewsController {
         if (news.getId() == null) {
             newsDAO.insert(news);
             validator.add(new I18nMessage("success", "success.created", Severity.SUCCESS));
-            result.redirectTo(DashboardController.class).dashboard();
+            result.redirectTo(DashboardController.class).dashboard(null, null);
             return;
         }
         newsDAO.update(news);
         validator.add(new I18nMessage("success", "success.updated", Severity.SUCCESS));
-        result.redirectTo(DashboardController.class).dashboard();
+        result.redirectTo(DashboardController.class).dashboard(null, null);
     }
 
     @Get("/news/{id}")
@@ -78,6 +78,6 @@ public class NewsController {
         News news = newsDAO.findById(id);
         newsDAO.delete(news);
         validator.add(new I18nMessage("success", "success.deleted", Severity.SUCCESS));
-        result.redirectTo(DashboardController.class).dashboard();
+        result.redirectTo(DashboardController.class).dashboard(null, null);
     }
 }

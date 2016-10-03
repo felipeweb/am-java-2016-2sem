@@ -9,6 +9,7 @@ import br.com.caelum.vraptor.validator.Severity;
 import br.com.caelum.vraptor.validator.Validator;
 import br.com.fiap.am.dao.UserDAO;
 import br.com.fiap.am.enums.AccessLevel;
+import br.com.fiap.am.infra.Digester;
 import br.com.fiap.am.model.User;
 
 import javax.inject.Inject;
@@ -48,14 +49,16 @@ public class UserController {
 	public void saveUser(@Valid User user) {
 		validator.onErrorRedirectTo(this).form();
 		if (user.getId() == null) {
+			user.setPassword(Digester.encrypt(user.getPassword()));
 			userDAO.insert(user);
 			validator.add(new I18nMessage("success", "success.created", Severity.SUCCESS));
-			result.redirectTo(DashboardController.class).dashboard();
+			result.redirectTo(DashboardController.class).dashboard(null, null);
 			return;
 		}
+		user.setPassword(Digester.encrypt(user.getPassword()));
 		userDAO.update(user);
 		validator.add(new I18nMessage("success", "success.updated", Severity.SUCCESS));
-		result.redirectTo(DashboardController.class).dashboard();
+		result.redirectTo(DashboardController.class).dashboard(null, null);
 	}
 
 	@Get("/user/{id}")
@@ -80,6 +83,6 @@ public class UserController {
 		User user = userDAO.findById(id);
 		userDAO.delete(user);
 		validator.add(new I18nMessage("success", "success.deleted", Severity.SUCCESS));
-		result.redirectTo(DashboardController.class).dashboard();
+		result.redirectTo(DashboardController.class).dashboard(null, null);
 	}
 }

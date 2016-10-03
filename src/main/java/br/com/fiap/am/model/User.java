@@ -11,6 +11,7 @@ import static javax.persistence.EnumType.STRING;
 
 @Entity
 @Table(name = "users")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -86,5 +87,9 @@ public class User implements Serializable {
 
 	public void setAccessLevel(AccessLevel accessLevel) {
 		this.accessLevel = accessLevel;
+	}
+	
+	public boolean isAdmin(){
+		return accessLevel == AccessLevel.ADMINISTRADOR || accessLevel == AccessLevel.WEBMASTER; 
 	}
 }
