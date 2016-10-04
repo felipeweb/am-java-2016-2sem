@@ -16,7 +16,7 @@
 				</select>
 			</div>
 		</label> <label class="ls-label col-md-8 col-sm-8"> <b
-			class="ls-label-text"><fmt:message key="filter.value"/></b> <input type="text" name="value"
+			class="ls-label-text"><fmt:message key="filter.value"/></b> <input type="text" name="value" value="${param.value}"
 			placeholder="<fmt:message key="filter.value"/>">
 		</label>
 		<div class="ls-actions-btn">

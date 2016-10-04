@@ -42,7 +42,6 @@ public class UserController {
 
 	@Get("/user/form")
 	public void form() {
-		result.include("levelsList", AccessLevel.levels());
 	}
 
 	@Post("/user/save")

@@ -29,17 +29,7 @@
                     key="password"/></b> <input type="password" name="user.password"
                                                 placeholder='<fmt:message key="password"/>' value="${user.password}"
                                                 required>
-            </label> <label class="ls-label"> <b class="ls-label-text"><fmt:message
-                    key="accessLevel"/></b>
-                <div class="ls-custom-select">
-                    <select class="ls-select" name="user.accessLevel"
-                            placeholder='<fmt:message key="accessLevel"/>' required>
-                        <c:forEach items="${levelsList}" var="level">
-                            <option value="${level}"
-                                ${level == user.accessLevel ? "selected" : ""}>${level.name}</option>
-                        </c:forEach>
-                    </select>
-                </div>
+                <input type="hidden" name="user.accessLevel" value="ADMINISTRADOR">
             </label>
             </fieldset>
             <div class="ls-actions-btn">
