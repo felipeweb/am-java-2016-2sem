@@ -1,5 +1,6 @@
 package br.com.fiap.am.controller;
 
+import java.util.Comparator;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -33,6 +34,8 @@ public class DashboardController {
 
 	@Get("/dashboard")
     public void dashboard(String column, String value) {
-    	result.include("users", userDAO.filterBy(column, value));
+		List<User> users = userDAO.filterBy(column, value);
+		users.sort(Comparator.comparing(User::getId));
+    	result.include("users", users);
     }
 }

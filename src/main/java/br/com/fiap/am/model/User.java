@@ -92,38 +92,4 @@ public abstract class User implements Serializable{
 	public boolean isAdmin(){
 		return accessLevel == AccessLevel.ADMINISTRADOR || accessLevel == AccessLevel.WEBMASTER;
 	}
-
-	public abstract String getRg();
-
-	public abstract void setRg(String rG);
-
-	public abstract String getCpf();
-
-	public abstract void setCpf(String cPF);
-
-	public abstract String getPhone();
-
-	public abstract void setPhone(String phone);
-
-	public abstract String getFaixaInvestimento();
-
-	public abstract void setFaixaInvestimento(double faixaInvestimento);
-
-	public abstract String getTempoInvestimento();
-
-	public abstract void setTempoInvestimento(int tempoInvestimento);
-
-	public abstract String getParticipacao();
-
-	public abstract String getProfissao();
-
-	public abstract void setProfissao(String profissao);
-
-	public abstract String getEstadoCivil();
-
-	public abstract void setEstadoCivil(String estadoCivil);
-
-	public abstract String getFaixaSalarial();
-
-	public abstract void setFaixaSalarial(String faixaSalarial);
 }
