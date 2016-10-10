@@ -38,6 +38,98 @@
 				</div>
 			</c:forEach>
 		</c:if>
+		<h1><fmt:message key="new.user.investor"/></h1>
+		<form action="/user/save/investor" method="post" class="ls-form row">
+			<fieldset>
+				<label class="ls-label col-md-12">
+					<input type="hidden" name="user.accessLevel" value="INVESTIDOR">
+					<b class="ls-label-text"><fmt:message key="name" /></b>
+					<input type="text" name="user.name" placeholder='<fmt:message key="name" />'>
+				</label>
+				<label class="ls-label col-md-12">
+					<b class="ls-label-text"><fmt:message key="login" /></b>
+					<input type="text" name="user.login" placeholder='<fmt:message key="login" />'>
+				</label>
+				<label class="ls-label col-md-12">
+					<b class="ls-label-text"><fmt:message key="password" /></b>
+					<input type="password" name="user.password" placeholder='<fmt:message key="password" />'>
+				</label>
+				<label class="ls-label col-md-12">
+					<b class="ls-label-text"><fmt:message key="select.cpf" /></b>
+					<input type="text" name="user.cpf" placeholder='<fmt:message key="select.cpf" />'>
+				</label>
+				<label class="ls-label col-md-12">
+					<b class="ls-label-text"><fmt:message key="select.rg" /></b>
+					<input type="text" name="user.rg" placeholder='<fmt:message key="select.rg" />'>
+				</label>
+				<label class="ls-label col-md-12">
+					<b class="ls-label-text"><fmt:message key="select.phone" /></b>
+					<input type="text" name="user.phone" placeholder='<fmt:message key="select.phone" />'>
+				</label>
+				<label class="ls-label col-md-12">
+					<b class="ls-label-text"><fmt:message key="select.faixaInvestimento" /></b>
+					<input type="text" name="user.faixaInvestimento" placeholder='<fmt:message key="select.faixaInvestimento" />'>
+				</label>
+				<label class="ls-label col-md-12">
+					<b class="ls-label-text"><fmt:message key="select.tempoInvestimento" /></b>
+					<input type="text" name="user.tempoInvestimento" placeholder='<fmt:message key="select.tempoInvestimento" />'>
+				</label>
+				<label class="ls-label col-md-12">
+					<b class="ls-label-text"><fmt:message key="select.participacao" /></b>
+					<input type="text" name="user.participacao" placeholder='<fmt:message key="select.participacao" />'>
+				</label>
+			</fieldset>
+			<div class="ls-actions-btn">
+				<button type="submit" class="ls-btn"><fmt:message key="save"/></button>
+				<button type="reset" class="ls-btn"><fmt:message key="clear"/></button>
+			</div>
+		</form>
+		<h1><fmt:message key="new.user.client"/></h1>
+		<form action="/user/save/client" method="post" class="ls-form row">
+			<fieldset>
+				<label class="ls-label col-md-12">
+					<input type="hidden" name="user.accessLevel" value="COMPRADOR">
+					<b class="ls-label-text"><fmt:message key="name" /></b>
+					<input type="text" name="user.name" placeholder='<fmt:message key="name" />'>
+				</label>
+				<label class="ls-label col-md-12">
+					<b class="ls-label-text"><fmt:message key="login" /></b>
+					<input type="text" name="user.login" placeholder='<fmt:message key="login" />'>
+				</label>
+				<label class="ls-label col-md-12">
+					<b class="ls-label-text"><fmt:message key="password" /></b>
+					<input type="password" name="user.password" placeholder='<fmt:message key="password" />'>
+				</label>
+				<label class="ls-label col-md-12">
+					<b class="ls-label-text"><fmt:message key="select.cpf" /></b>
+					<input type="text" name="user.cpf" placeholder='<fmt:message key="select.cpf" />'>
+				</label>
+				<label class="ls-label col-md-12">
+					<b class="ls-label-text"><fmt:message key="select.rg" /></b>
+					<input type="text" name="user.rg" placeholder='<fmt:message key="select.rg" />'>
+				</label>
+				<label class="ls-label col-md-12">
+					<b class="ls-label-text"><fmt:message key="select.phone" /></b>
+					<input type="text" name="user.phone" placeholder='<fmt:message key="select.phone" />'>
+				</label>
+				<label class="ls-label col-md-12">
+					<b class="ls-label-text"><fmt:message key="select.profissao" /></b>
+					<input type="text" name="user.profissao" placeholder='<fmt:message key="select.profissao" />'>
+				</label>
+				<label class="ls-label col-md-12">
+					<b class="ls-label-text"><fmt:message key="select.estadoCivil" /></b>
+					<input type="text" name="user.estadoCivil" placeholder='<fmt:message key="select.estadoCivil" />'>
+				</label>
+				<label class="ls-label col-md-12">
+					<b class="ls-label-text"><fmt:message key="select.faixaSalarial" /></b>
+					<input type="text" name="user.faixaSalarial" placeholder='<fmt:message key="select.faixaSalarial" />'>
+				</label>
+			</fieldset>
+			<div class="ls-actions-btn">
+				<button type="submit" class="ls-btn"><fmt:message key="save"/></button>
+				<button type="reset" class="ls-btn"><fmt:message key="clear"/></button>
+			</div>
+		</form>
 	</div>
 </main>
 <tags:footer/>

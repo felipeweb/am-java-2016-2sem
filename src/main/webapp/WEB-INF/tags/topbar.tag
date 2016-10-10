@@ -13,6 +13,7 @@
 
                 <nav class="ls-dropdown-nav ls-user-menu">
                     <ul>
+                        <li><a href="/dashboard"><fmt:message key="dashboard"/> </a></li>
                         <li><a href="/logout"><fmt:message key="sair"/> </a></li>
                     </ul>
                 </nav>

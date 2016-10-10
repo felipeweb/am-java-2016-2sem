@@ -11,15 +11,15 @@ import br.com.fiap.am.enums.AccessLevel;
 public class Client extends User{
 	
 	@NotNull
-	private String RG;
+	private String rg;
 	@NotNull
 	@CPF
-	private String CPF;
+	private String cpf;
 	@NotNull
-	private int phone;
+	private String phone;
 	private String profissao;
 	private String estadoCivil;
-	private double faixaSalarial;
+	private String faixaSalarial;
 	
 	/**
 	 * @deprecated JPA eyes only
@@ -32,53 +32,88 @@ public class Client extends User{
 		super(nome, login, senha, AccessLevel.COMPRADOR);
 	}
 
-	public String getRG() {
-		return RG;
+	@Override
+	public String getRg() {
+		return rg;
 	}
 
-	public void setRG(String rG) {
-		RG = rG;
+	@Override
+	public void setRg(String rg) {
+		this.rg = rg;
 	}
 
-	public String getCPF() {
-		return CPF;
+	@Override
+	public String getCpf() {
+		return cpf;
 	}
 
-	public void setCPF(String cPF) {
-		CPF = cPF;
+	@Override
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
 	}
 
-	public int getPhone() {
+	@Override
+	public String getPhone() {
 		return phone;
 	}
 
-	public void setPhone(int phone) {
+	@Override
+	public void setPhone(String phone) {
 		this.phone = phone;
 	}
 
+	@Override
+	public String getFaixaInvestimento() {
+		return null;
+	}
+
+	@Override
+	public void setFaixaInvestimento(double faixaInvestimento) {
+
+	}
+
+	@Override
+	public String getTempoInvestimento() {
+		return null;
+	}
+
+	@Override
+	public void setTempoInvestimento(int tempoInvestimento) {
+
+	}
+
+	@Override
+	public String getParticipacao() {
+		return null;
+	}
+
+	@Override
 	public String getProfissao() {
 		return profissao;
 	}
 
+	@Override
 	public void setProfissao(String profissao) {
 		this.profissao = profissao;
 	}
 
+	@Override
 	public String getEstadoCivil() {
 		return estadoCivil;
 	}
 
+	@Override
 	public void setEstadoCivil(String estadoCivil) {
 		this.estadoCivil = estadoCivil;
 	}
 
-	public double getFaixaSalarial() {
+	@Override
+	public String getFaixaSalarial() {
 		return faixaSalarial;
 	}
 
-	public void setFaixaSalarial(double faixaSalarial) {
+	@Override
+	public void setFaixaSalarial(String faixaSalarial) {
 		this.faixaSalarial = faixaSalarial;
 	}
-	
-	
 }

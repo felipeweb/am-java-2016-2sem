@@ -12,15 +12,15 @@ import br.com.fiap.am.enums.AccessLevel;
 public class Investor extends User{
 	
 	@NotNull
-	private String RG;
+	private String rg;
 	@NotNull
 	@CPF
-	private String CPF;
+	private String cpf;
 	@NotNull
-	private int phone;
-	private double faixaInvestimento;
-	private int tempoInvestimento;
-	private int participacao;
+	private String phone;
+	private String faixaInvestimento;
+	private String tempoInvestimento;
+	private String participacao;
 	
 	/**
 	 * @deprecated JPA eyes only
@@ -33,52 +33,100 @@ public class Investor extends User{
 		super(nome, login, senha, AccessLevel.INVESTIDOR);
 	}
 
-	public String getRG() {
-		return RG;
+	@Override
+	public String getRg() {
+		return rg;
 	}
 
-	public void setRG(String rG) {
-		RG = rG;
+	@Override
+	public void setRg(String rg) {
+		this.rg = rg;
 	}
 
-	public String getCPF() {
-		return CPF;
+	@Override
+	public String getCpf() {
+		return cpf;
 	}
 
-	public void setCPF(String cPF) {
-		CPF = cPF;
+	@Override
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
 	}
 
-	public int getPhone() {
+	@Override
+	public String getPhone() {
 		return phone;
 	}
 
-	public void setPhone(int phone) {
+	@Override
+	public void setPhone(String phone) {
 		this.phone = phone;
 	}
 
-	public double getFaixaInvestimento() {
+	@Override
+	public String getFaixaInvestimento() {
 		return faixaInvestimento;
 	}
 
+	@Override
 	public void setFaixaInvestimento(double faixaInvestimento) {
+
+	}
+
+	public void setFaixaInvestimento(String faixaInvestimento) {
 		this.faixaInvestimento = faixaInvestimento;
 	}
 
-	public int getTempoInvestimento() {
+	@Override
+	public String getTempoInvestimento() {
 		return tempoInvestimento;
 	}
 
+	@Override
 	public void setTempoInvestimento(int tempoInvestimento) {
+
+	}
+
+	public void setTempoInvestimento(String tempoInvestimento) {
 		this.tempoInvestimento = tempoInvestimento;
 	}
 
-	public int getParticipacao() {
+	@Override
+	public String getParticipacao() {
 		return participacao;
 	}
 
-	public void setParticipacao(int participacao) {
+	public void setParticipacao(String participacao) {
 		this.participacao = participacao;
 	}
-	
+
+	@Override
+	public String getProfissao() {
+		return null;
+	}
+
+	@Override
+	public void setProfissao(String profissao) {
+
+	}
+
+	@Override
+	public String getEstadoCivil() {
+		return null;
+	}
+
+	@Override
+	public void setEstadoCivil(String estadoCivil) {
+
+	}
+
+	@Override
+	public String getFaixaSalarial() {
+		return null;
+	}
+
+	@Override
+	public void setFaixaSalarial(String faixaSalarial) {
+
+	}
 }
