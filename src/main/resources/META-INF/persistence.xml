@@ -11,6 +11,7 @@
         <class>br.com.fiap.am.model.Administrator</class>
         <class>br.com.fiap.am.model.Investor</class>
         <class>br.com.fiap.am.model.Webmaster</class>
+        <class>br.com.fiap.am.model.Door</class>
         <properties>
             <!-- dados da conexao -->
             <property name="javax.persistence.jdbc.driver"
