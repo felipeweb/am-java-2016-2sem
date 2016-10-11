@@ -1,6 +1,7 @@
 package br.com.fiap.am.model;
 
 import br.com.fiap.am.enums.AccessLevel;
+import com.google.gson.annotations.SerializedName;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
@@ -17,18 +18,22 @@ public abstract class User implements Serializable{
 
 	@Id
 	@GeneratedValue
+	@SerializedName("id")
 	private Long id;
 
 	@NotNull
 	@NotEmpty
+	@SerializedName("nome")
 	private String name;
 
 	@NotNull
 	@NotEmpty
+	@SerializedName("email")
 	private String login;
 
 	@NotNull
 	@NotEmpty
+	@SerializedName("senha")
 	private String password;
 
 	@NotNull

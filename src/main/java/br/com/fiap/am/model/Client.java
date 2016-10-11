@@ -5,17 +5,21 @@ import javax.persistence.Entity;
 import javax.validation.constraints.NotNull;
 import br.com.caelum.stella.bean.validation.CPF;
 import br.com.fiap.am.enums.AccessLevel;
+import com.google.gson.annotations.SerializedName;
 
 @Entity
 @DiscriminatorValue("client")
 public class Client extends User {
 
 	@NotNull
+	@SerializedName("rg")
 	private String rg;
 	@NotNull
 	@CPF
+	@SerializedName("cpf")
 	private String cpf;
 	@NotNull
+	@SerializedName("telefone")
 	private String phone;
 	private String profissao;
 	private String estadoCivil;

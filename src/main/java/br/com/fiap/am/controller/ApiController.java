@@ -44,12 +44,11 @@ public class ApiController {
         this.ports = ports;
     }
 
-    @Post("/login")
+    @Get("/login")
     @Public
-    @Consumes("application/json")
-    public void login(@NotNull String email, @NotNull String senha) {
+    public void login(@NotNull String login, @NotNull String senha) {
         validator.onErrorSendBadRequest();
-        User user = users.findUserByLoginAndPassword(email, senha);
+        User user = users.findUserByLoginAndPassword(login, senha);
         result.use(json()).withoutRoot().from(user).recursive().serialize();
     }
 
@@ -58,7 +57,11 @@ public class ApiController {
     @Consumes("application/json")
     public void saveUser(@Valid Client client) {
         validator.onErrorSendBadRequest();
-        users.insert(client);
+        if (client.getId() == null) {
+            users.insert(client);
+        } else {
+            users.update(client);
+        }
         result.use(http()).setStatusCode(201);
         result.use(json()).withoutRoot().from(client).recursive().serialize();
     }
@@ -77,7 +80,11 @@ public class ApiController {
     public void saveDoor(@Valid Door door) {
         validator.onErrorSendBadRequest();
         result.use(http()).setStatusCode(201);
-        ports.insert(door);
+        if (door.getId() == null) {
+            ports.insert(door);
+        } else {
+            ports.update(door);
+        }
         result.use(json()).withoutRoot().from(door).recursive().serialize();
     }
 

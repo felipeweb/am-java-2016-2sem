@@ -1,5 +1,7 @@
 package br.com.fiap.am.model;
 
+import com.google.gson.annotations.SerializedName;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
@@ -15,10 +17,13 @@ import java.io.Serializable;
 public class Door implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
+    @SerializedName("id")
     private Long id;
     @NotNull
+    @SerializedName("nome")
     private String nome;
     @NotNull
+    @SerializedName("status")
     private boolean aberta;
     @NotNull
     @OneToOne
