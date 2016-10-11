@@ -11,6 +11,7 @@ import br.com.fiap.am.authorization.Public;
 import br.com.fiap.am.dao.UserDAO;
 import br.com.fiap.am.enums.AccessLevel;
 import br.com.fiap.am.infra.Digester;
+import br.com.fiap.am.model.Administrator;
 import br.com.fiap.am.model.Client;
 import br.com.fiap.am.model.Investor;
 import br.com.fiap.am.model.User;
@@ -48,7 +49,7 @@ public class UserController {
 	}
 
 	@Post("/user/save")
-	public void saveUser(@Valid User user) {
+	public void saveUser(@Valid Administrator user) {
 		validator.onErrorRedirectTo(this).form();
 		if (user.getId() == null) {
 			user.setPassword(Digester.encrypt(user.getPassword()));

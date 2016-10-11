@@ -28,7 +28,7 @@ public class News implements Serializable {
     private String content;
     private LocalDateTime date = LocalDateTime.now();
     @OneToOne
-    private User author;
+    private Administrator author;
 
     public Long getId() {
         return id;
@@ -62,11 +62,11 @@ public class News implements Serializable {
         this.date = date;
     }
 
-    public User getAuthor() {
+    public Administrator getAuthor() {
         return author;
     }
 
-    public void setAuthor(User author) {
+    public void setAuthor(Administrator author) {
         this.author = author;
     }
 
