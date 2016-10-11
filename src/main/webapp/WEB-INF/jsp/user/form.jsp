@@ -27,7 +27,7 @@
                                                 required>
             </label> <label class="ls-label"> <b class="ls-label-text"><fmt:message
                     key="password"/></b> <input type="password" name="user.password"
-                                                placeholder='<fmt:message key="password"/>' 
+                                                placeholder='<fmt:message key="password"/>'
                                                 required>
                 <input type="hidden" name="user.accessLevel" value="ADMINISTRADOR">
             </label>
