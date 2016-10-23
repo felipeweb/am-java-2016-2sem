@@ -10,7 +10,7 @@
         <class>br.com.fiap.am.model.Client</class>
         <class>br.com.fiap.am.model.Administrator</class>
         <class>br.com.fiap.am.model.Investor</class>
-        <class>br.com.fiap.am.model.Webmaster</class>
+        <class>br.com.fiap.am.model.InvestPackage</class>
         <class>br.com.fiap.am.model.Door</class>
         <properties>
             <!-- dados da conexao -->

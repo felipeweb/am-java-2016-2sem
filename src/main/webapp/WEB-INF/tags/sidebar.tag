@@ -15,6 +15,10 @@
 						title="Dashboard"><fmt:message key="new.news" /></a></li>
 					<li><a href="/news" class="ls-ico-envelope" title="Dashboard"><fmt:message
 								key="news.list" /></a></li>
+					<li><a href="/packages/form" class="ls-ico-envelope"
+						   title="Dashboard"><fmt:message key="new.investPackage" /></a></li>
+					<li><a href="/packages" class="ls-ico-envelope" title="Dashboard"><fmt:message
+							key="investPackage.list" /></a></li>
 				</c:if>
 			</ul>
 		</nav>
