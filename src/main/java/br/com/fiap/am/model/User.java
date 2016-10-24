@@ -11,7 +11,6 @@ import java.io.Serializable;
 import static javax.persistence.EnumType.STRING;
 
 @Entity
-@Table(name = "users")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public abstract class User implements Serializable{
 	private static final long serialVersionUID = 1L;

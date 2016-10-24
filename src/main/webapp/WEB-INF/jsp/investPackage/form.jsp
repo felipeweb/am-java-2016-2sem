@@ -21,6 +21,10 @@
                     <input type="text" name="investPackage.quantidade" placeholder='<fmt:message key="quantidade"/>' value="${investPackage.quantidade}" required >
                 </label>
                 <label class="ls-label">
+                    <b class="ls-label-text"><fmt:message key="quantidade.compras"/></b>
+                    <input type="text" name="investPackage.quantidadeCompras" placeholder='<fmt:message key="quantidade.compras"/>' value="${investPackage.quantidadeCompras == null ? '0' : investPackage.quantidadeCompras}" required >
+                </label>
+                <label class="ls-label">
                     <b class="ls-label-text"><fmt:message key="valor"/></b>
                     <input type="text" name="investPackage.valor" placeholder='<fmt:message key="valor"/>' value="${investPackage.valor}" required >
                 </label>
