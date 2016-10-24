@@ -126,15 +126,15 @@
                     <b class="ls-label-text"><fmt:message key="invest.packages"/></b>
                     <c:forEach items="${pkgs}" var="pkg" varStatus="index">
                         <label class="ls-label-text">
-                            <input type="hidden" id="${index.index}" name="user.packages[${index.index}].quantidadeCompras" value="${pkg.quantidadeCompras}">
-                            <input type="hidden" name="user.packages[${index.index}].quantidade" value="${pkg.quantidade}">
-                            <input type="hidden" name="user.packages[${index.index}].valor" value="${pkg.valor}">
-                            <input type="hidden" name="user.packages[${index.index}].descricao" value="${pkg.descricao}">
-                            <input type="checkbox" class="ck_pkg" name="user.packages[${index.index}].id" value="${pkg.id}" ${pkg.quantidadeDisponivel == 0 ? 'disabled' : ''}  data-input-id="${index.index}">
+                            <input type="hidden" id="${index.index}" name="user.quantidadePackage[${index.index}].investPackage.quantidadeCompras" value="${pkg.quantidadeCompras}">
+                            <input type="hidden" name="user.quantidadePackage[${index.index}].investPackage.quantidade" value="${pkg.quantidade}">
+                            <input type="hidden" name="user.quantidadePackage[${index.index}].investPackage.valor" value="${pkg.valor}">
+                            <input type="hidden" name="user.quantidadePackage[${index.index}].investPackage.descricao" value="${pkg.descricao}">
+                            <input type="checkbox" class="ck_pkg" name="user.quantidadePackage[${index.index}].investPackage.id" value="${pkg.id}" ${pkg.quantidadeDisponivel == 0 ? 'disabled' : ''}  data-input-id="${index.index}">
                             ${pkg.descricao}<br>
                             <b class="ls-label-text"><fmt:message key="quantidade.disponivel.pkg"/></b>
                             <div class="ls-custom-select">
-                                <select class="ls-select" id="select_${index.index}">
+                                <select class="ls-select" id="select_${index.index}" name="user.quantidadePackage[${index.index}].quantidade">
                                    <c:forEach begin="0" end="${pkg.quantidadeDisponivel}" var="qtd">
                                        <option value="${qtd}">${qtd}</option>
                                    </c:forEach>

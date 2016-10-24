@@ -12,6 +12,7 @@
         <class>br.com.fiap.am.model.Investor</class>
         <class>br.com.fiap.am.model.InvestPackage</class>
         <class>br.com.fiap.am.model.Door</class>
+        <class>br.com.fiap.am.model.QuantidadePorPacote</class>
         <properties>
             <!-- dados da conexao -->
             <property name="javax.persistence.jdbc.driver"

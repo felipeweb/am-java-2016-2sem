@@ -1,14 +1,14 @@
 package br.com.fiap.am.model;
 
-import javax.persistence.DiscriminatorValue;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 import br.com.caelum.stella.bean.validation.CPF;
 import br.com.fiap.am.enums.AccessLevel;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Entity
 @DiscriminatorValue("investor")
@@ -24,9 +24,8 @@ public class Investor extends User{
 	private String faixaInvestimento;
 	private String tempoInvestimento;
 	private String participacao;
-	@NotNull
-	@OneToMany
-	private List<InvestPackage> packages;
+	@OneToMany(cascade = CascadeType.ALL)
+	private List<QuantidadePorPacote> quantidadePackage;
 	
 	/**
 	 * @deprecated JPA eyes only
@@ -87,11 +86,12 @@ public class Investor extends User{
 		this.participacao = participacao;
 	}
 
-	public List<InvestPackage> getPackages() {
-		return packages;
+
+	public List<QuantidadePorPacote> getQuantidadePackage() {
+		return quantidadePackage;
 	}
 
-	public void setPackages(List<InvestPackage> packages) {
-		this.packages = packages;
+	public void setQuantidadePackage(List<QuantidadePorPacote> quantidadePackage) {
+		this.quantidadePackage = quantidadePackage;
 	}
 }

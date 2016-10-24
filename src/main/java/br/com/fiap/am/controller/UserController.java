@@ -9,6 +9,7 @@ import br.com.caelum.vraptor.validator.Severity;
 import br.com.caelum.vraptor.validator.Validator;
 import br.com.fiap.am.authorization.Public;
 import br.com.fiap.am.dao.InvestPackageDAO;
+import br.com.fiap.am.dao.QuatidadePorPacoteDAO;
 import br.com.fiap.am.dao.UserDAO;
 import br.com.fiap.am.enums.AccessLevel;
 import br.com.fiap.am.infra.Digester;
@@ -16,6 +17,7 @@ import br.com.fiap.am.model.*;
 
 import javax.inject.Inject;
 import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -69,14 +71,12 @@ public class UserController {
     @Public
     public void saveHome(@Valid Investor user) {
         validator.onErrorRedirectTo(HomeController.class).home();
-        List<InvestPackage> collect = user
-                .getPackages()
-                .stream()
-                .filter(p -> p.getId() != null)
-                .collect(Collectors.toList());
-        
-        collect.forEach(investPackageDAO::update);
-        user.setPackages(collect);
+        user.getQuantidadePackage()
+                .forEach(qp -> {
+                    if (qp.getInvestPackage().getId() != null) {
+                        investPackageDAO.update(qp.getInvestPackage());
+                    }
+                });
         save(user);
     }
 

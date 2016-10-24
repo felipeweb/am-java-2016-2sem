@@ -8,6 +8,7 @@ import javax.inject.Inject;
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Result;
+import br.com.fiap.am.dao.InvestPackageDAO;
 import br.com.fiap.am.dao.UserDAO;
 import br.com.fiap.am.model.User;
 
@@ -18,18 +19,20 @@ import br.com.fiap.am.model.User;
 public class DashboardController {
 	private final Result result;
 	private final UserDAO userDAO;
+	private final InvestPackageDAO investPackageDAO;
 	
 	/**
 	 * @deprecated CDI eyes only
 	 */
     protected DashboardController() {
-    	this(null, null);
+    	this(null, null, null);
 	}
     
     @Inject
-	public DashboardController(Result result, UserDAO userDAO) {
+	public DashboardController(Result result, UserDAO userDAO, InvestPackageDAO investPackageDAO) {
 		this.result = result;
 		this.userDAO = userDAO;
+		this.investPackageDAO = investPackageDAO;
 	}
 
 	@Get("/dashboard")
@@ -38,4 +41,8 @@ public class DashboardController {
 		users.sort(Comparator.comparing(User::getId));
     	result.include("users", users);
     }
+	@Get("/dashboard/invest")
+	public void dashboardInvest() {
+
+	}
 }
