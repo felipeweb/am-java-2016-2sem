@@ -23,7 +23,7 @@ public class InvestPackage implements Serializable {
     @NotNull
     private BigDecimal valor;
     @NotNull
-    private Integer quantidadeCompras = 0;
+    private Integer quantidadeCompras;
 
     public Long getId() {
         return id;
