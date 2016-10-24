@@ -21,7 +21,6 @@
 				<th><fmt:message key="name" /></th>
 				<th><fmt:message key="login" /></th>
 				<th><fmt:message key="accessLevel" /></th>
-
 			</tr>
 			</thead>
 			<tbody>

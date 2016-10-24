@@ -1,5 +1,6 @@
 package br.com.fiap.am.controller;
 
+import java.text.DecimalFormat;
 import java.util.Comparator;
 import java.util.List;
 
@@ -10,6 +11,7 @@ import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Result;
 import br.com.fiap.am.dao.InvestPackageDAO;
 import br.com.fiap.am.dao.UserDAO;
+import br.com.fiap.am.model.Investor;
 import br.com.fiap.am.model.User;
 
 /**
@@ -42,7 +44,17 @@ public class DashboardController {
     	result.include("users", users);
     }
 	@Get("/dashboard/invest")
-	public void dashboardInvest() {
+	public void dashboardInvest(String value) {
+		double sum;
+		List<Investor> users;
+		if (value != null) {
+			users = userDAO.findAllInvestorByPackageName(value);
+		} else {
+			users = userDAO.findAllInvestor();
+		}
+		sum = users.stream().mapToDouble(Investor::getSubTotal).sum();
+		result.include("users", users);
+		result.include("total", new DecimalFormat("0").format(sum));
 
 	}
 }

@@ -3,6 +3,8 @@ package br.com.fiap.am.model;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.math.BigDecimal;
+import java.text.DecimalFormat;
 
 @Entity
 public class QuantidadePorPacote implements Serializable {
@@ -39,5 +41,14 @@ public class QuantidadePorPacote implements Serializable {
 
     public void setQuantidade(Integer quantidade) {
         this.quantidade = quantidade;
+    }
+
+    public Double getTotal() {
+        return investPackage.getValor().multiply(new BigDecimal(quantidade)).doubleValue();
+    }
+
+    public String getTotalf() {
+        DecimalFormat decimalFormat = new DecimalFormat("0");
+        return decimalFormat.format(investPackage.getValor().multiply(new BigDecimal(quantidade)).doubleValue());
     }
 }

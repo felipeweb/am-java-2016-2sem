@@ -1,6 +1,7 @@
 package br.com.fiap.am.dao;
 
 import br.com.fiap.am.infra.Digester;
+import br.com.fiap.am.model.InvestPackage;
 import br.com.fiap.am.model.Investor;
 import br.com.fiap.am.model.User;
 
@@ -57,5 +58,12 @@ public class UserDAO extends GenericDAO<User> {
 
 	public List<Investor> findAllInvestor() {
 		return (List<Investor>) getEntityManager().createQuery("SELECT i FROM Investor i").getResultList();
+	}
+	public List<Investor> findAllInvestorByPackageName(String value) {
+		return (List<Investor>) getEntityManager().createQuery("SELECT i FROM Investor i JOIN i.quantidadePackage q WHERE q.investPackage.descricao = :value").setParameter("value", value).getResultList();
+	}
+
+	public List<Investor> findAllInvestorByInvestPackage(InvestPackage investPackage) {
+		return (List<Investor>) getEntityManager().createQuery("SELECT u FROM Investor u JOIN u.quantidadePackage q WHERE q.investPackage = :p").setParameter("p", investPackage).getResultList();
 	}
 }

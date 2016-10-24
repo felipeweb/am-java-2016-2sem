@@ -6,6 +6,7 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.text.DecimalFormat;
 
 /**
  * Created by felipeweb on 18/10/16.
@@ -66,6 +67,19 @@ public class InvestPackage implements Serializable {
     }
     
     public Integer getQuantidadeDisponivel(){
-    	return quantidade - quantidadeCompras;
+        Integer v = quantidade - quantidadeCompras;
+    	return v >= 0 ? v : 0;
+    }
+
+    public Double getSubTotal() {
+        BigDecimal total = valor.multiply(new BigDecimal((quantidade - quantidadeCompras)));
+        return total.doubleValue();
+    }
+
+    public String getSubTotalf() {
+        DecimalFormat decimalFormat = new DecimalFormat("0");
+
+        BigDecimal total = valor.multiply(new BigDecimal((quantidade - quantidadeCompras)));
+        return decimalFormat.format(total.doubleValue());
     }
 }

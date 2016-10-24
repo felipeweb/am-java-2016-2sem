@@ -8,12 +8,17 @@ import br.com.caelum.vraptor.validator.I18nMessage;
 import br.com.caelum.vraptor.validator.Severity;
 import br.com.caelum.vraptor.validator.Validator;
 import br.com.fiap.am.dao.InvestPackageDAO;
+import br.com.fiap.am.dao.QuantidadePorPacoteDAO;
+import br.com.fiap.am.dao.UserDAO;
 import br.com.fiap.am.model.InvestPackage;
-import br.com.fiap.am.model.News;
+import br.com.fiap.am.model.Investor;
+import br.com.fiap.am.model.QuantidadePorPacote;
 
 import javax.inject.Inject;
 import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Created by felipeweb on 17/09/16.
@@ -23,19 +28,23 @@ public class InvestPackageController {
     private final Validator validator;
     private final Result result;
     private final InvestPackageDAO investPackageDAO;
+    private final QuantidadePorPacoteDAO quatidadePorPacoteDAO;
+    private final UserDAO userDAO;
 
     /**
      * @deprecated CDI eyes only
      */
     protected InvestPackageController() {
-        this(null, null, null);
+        this(null, null, null, null, null);
     }
 
     @Inject
-    public InvestPackageController(Validator validator, Result result, InvestPackageDAO newsDAO) {
+    public InvestPackageController(Validator validator, Result result, InvestPackageDAO investPackageDAO, QuantidadePorPacoteDAO quatidadePorPacoteDAO, UserDAO userDAO) {
         this.validator = validator;
         this.result = result;
-        this.investPackageDAO = newsDAO;
+        this.investPackageDAO = investPackageDAO;
+        this.quatidadePorPacoteDAO = quatidadePorPacoteDAO;
+        this.userDAO = userDAO;
     }
 
     @Get("/packages/form")
@@ -76,7 +85,15 @@ public class InvestPackageController {
 
     @Get("/packages/remove/{id}")
     public void delete(Long id) {
+        List<QuantidadePorPacote> l = new ArrayList<>();
         InvestPackage investPackage = investPackageDAO.findById(id);
+        List<Investor> investors = userDAO.findAllInvestorByInvestPackage(investPackage);
+        investors.forEach(u -> {
+            List<QuantidadePorPacote> collect = u.getQuantidadePackage().stream().filter(q -> !q.getInvestPackage().equals(investPackage)).collect(Collectors.toList());
+            u.setQuantidadePackage(collect);
+            userDAO.update(u);
+        });
+        quatidadePorPacoteDAO.deleteByInvestPackage(investPackage);
         investPackageDAO.delete(investPackage);
         validator.add(new I18nMessage("success", "success.deleted", Severity.SUCCESS));
         result.redirectTo(DashboardController.class).dashboard(null, null);

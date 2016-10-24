@@ -7,6 +7,8 @@
 				<c:if test="${userSession.user.admin}">
 					<li><a href="/dashboard" class="ls-ico-dashboard"
 						title="Dashboard"><fmt:message key="dashboard" /></a></li>
+					<li><a href="/dashboard/invest" class="ls-ico-dashboard"
+						   title="Dashboard"><fmt:message key="dashboard.invest" /></a></li>
 					<li><a href="/user/form" class="ls-ico-user" title="Dashboard"><fmt:message
 								key="new.user" /></a></li>
 					<li><a href="/users" class="ls-ico-user" title="Dashboard"><fmt:message
